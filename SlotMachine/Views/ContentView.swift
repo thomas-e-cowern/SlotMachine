@@ -14,7 +14,7 @@ struct ContentView: View {
     
     // MARK:  Body
     var body: some View {
-        ZStack () {
+        ZStack (alignment:.center) {
             
             // MARK:  Background
             LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .top, endPoint: .bottom)
@@ -29,30 +29,34 @@ struct ContentView: View {
                 Spacer()
                 
                 // MARK:  Score
-                HStack () {
-                    Text("Your\nCoins".uppercased())
-                        .foregroundColor(Color.white)
-                        .font(.system(size: 10, weight: .bold, design: .rounded))
-                   Text("100")
-                        .foregroundColor(Color.white)
-                        .font(.system(.title, design: .rounded))
-                        .fontWeight(.heavy)
-                        .shadow(color: Color("ColorTransparentBlack"), radius: 0, x: 0, y: 3)
-                        .layoutPriority(1)
+                HStack {
+                    HStack () {
+                        Text("Your\nCoins".uppercased())
+                            .scoreLabelStyle()
+                            .multilineTextAlignment(.trailing)
+                       Text("100")
+                            .scoreNumberStyle()
+                            .modifier(ScoreNumberModifier())
+                    } // End of HStack
+                    .modifier(ScoreContainerModifier())
+                    
+                    Spacer()
+                    
+                    HStack () {
+                        Text("200")
+                             .scoreNumberStyle()
+                             .modifier(ScoreNumberModifier())
+                        Text("High\nScore".uppercased())
+                            .scoreLabelStyle()
+                            .multilineTextAlignment(.leading)
+                       
+                    } // End of HStack
+                    .modifier(ScoreContainerModifier())
                 } // End of HStack
-                .padding(.vertical, 4)
-                .padding(.horizontal, 16)
-                .frame(minWidth: 128)
-                .background(
-                    Capsule()
-                        .foregroundColor(Color("ColorTransparentBlack"))
-                )
-                
                 // MARK:  Slot Machine
                 // MARK:  Footer
-                
                 Spacer()
-            }
+            } // End of VStack
             
             // MARK:  Buttons
             .overlay(alignment: .topLeading, content: {
@@ -69,7 +73,7 @@ struct ContentView: View {
             
             .overlay(alignment: .topTrailing, content: {
 
-                // MARK:  Reset
+                // MARK:  Info
                 Button {
                     print("Info")
                 } label: {
