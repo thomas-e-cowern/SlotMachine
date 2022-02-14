@@ -20,6 +20,8 @@
 		41FD997C27BA9C1F0083F100 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41FD997427BA9C1F0083F100 /* win.mp3 */; };
 		41FD997D27BA9C1F0083F100 /* game-over.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41FD997527BA9C1F0083F100 /* game-over.mp3 */; };
 		41FD998227BA9CB70083F100 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41FD998127BA9CB70083F100 /* LaunchScreen.storyboard */; };
+		41FD998427BAB2090083F100 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FD998327BAB2080083F100 /* LogoView.swift */; };
+		41FD998627BAB2860083F100 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FD998527BAB2850083F100 /* Modifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		41FD997427BA9C1F0083F100 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
 		41FD997527BA9C1F0083F100 /* game-over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-over.mp3"; sourceTree = "<group>"; };
 		41FD998127BA9CB70083F100 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		41FD998327BAB2080083F100 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		41FD998527BAB2850083F100 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				41FD996227BA93600083F100 /* ContentView.swift */,
+				41FD998327BAB2080083F100 /* LogoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 		41FD998027BA9C770083F100 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				41FD998527BAB2850083F100 /* Modifiers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -197,7 +203,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FD998627BAB2860083F100 /* Modifiers.swift in Sources */,
 				41FD996327BA93600083F100 /* ContentView.swift in Sources */,
+				41FD998427BAB2090083F100 /* LogoView.swift in Sources */,
 				41FD996127BA93600083F100 /* SlotMachineApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
