@@ -29,12 +29,56 @@ struct ContentView: View {
                 Spacer()
                 
                 // MARK:  Score
+                HStack () {
+                    Text("Your\nCoins".uppercased())
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                   Text("100")
+                        .foregroundColor(Color.white)
+                        .font(.system(.title, design: .rounded))
+                        .fontWeight(.heavy)
+                        .shadow(color: Color("ColorTransparentBlack"), radius: 0, x: 0, y: 3)
+                        .layoutPriority(1)
+                } // End of HStack
+                .padding(.vertical, 4)
+                .padding(.horizontal, 16)
+                .frame(minWidth: 128)
+                .background(
+                    Capsule()
+                        .foregroundColor(Color("ColorTransparentBlack"))
+                )
+                
                 // MARK:  Slot Machine
                 // MARK:  Footer
+                
+                Spacer()
             }
-            .padding()
-            .frame(maxWidth: 720)
             
+            // MARK:  Buttons
+            .overlay(alignment: .topLeading, content: {
+
+                // MARK:  Reset
+                Button {
+                    print("Reset the game")
+                } label: {
+                    Image(systemName: "arrow.2.circlepath.circle")
+                }
+                .modifier(ButtonModifier())
+            })
+            .padding()
+            
+            .overlay(alignment: .topTrailing, content: {
+
+                // MARK:  Reset
+                Button {
+                    print("Info")
+                } label: {
+                    Image(systemName: "info.circle")
+                }
+                .modifier(ButtonModifier())
+            })
+            .padding()
+
             // MARK:  Pop-up
         } // End of ZStack
     }
