@@ -61,8 +61,13 @@ struct ContentView: View {
         coins -= betAmount
     }
     
-    
+    func acivateBet20() {
+        betAmount = 20
+    }
    
+    func activateBet10() {
+        betAmount = 10
+    }
     
     // MARK:  Game over
     
@@ -165,7 +170,7 @@ struct ContentView: View {
                     // MARK:  Bet 20
                     HStack (alignment: .center, spacing: 10) {
                         Button(action: {
-                            print("Bet 20 coins")
+                            self.acivateBet20()
                         }) {
                             Text("20")
                                 .fontWeight(.heavy)
@@ -184,7 +189,7 @@ struct ContentView: View {
                     // Bet 10
                     HStack (alignment: .center, spacing: 10) {
                         Button(action: {
-                            print("Bet 10 coins")
+                            self.activateBet10()
                         }) {
                             Text("10")
                                 .fontWeight(.heavy)
