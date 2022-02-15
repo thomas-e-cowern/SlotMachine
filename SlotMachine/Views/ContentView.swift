@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var betAmount: Int = 10
     @State private var isActiveBet10: Bool = true
     @State private var isActiveBet20: Bool = false
-    @State private var showModal: Bool = true
+    @State private var showModal: Bool = false
     
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
     
@@ -257,6 +257,62 @@ struct ContentView: View {
                 ZStack {
                     Color("ColorTransparentBlack").edgesIgnoringSafeArea(.all)
                 }
+                
+                // MARK:  Modal
+                VStack (spacing: 0) {
+                    
+                    // MARK:  Title
+                    Text("Game Over!")
+                        .font(.system(.title, design: .rounded))
+                        .fontWeight(.heavy)
+                        .padding()
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .background(Color("ColorPink"))
+                        .foregroundColor(Color.white)
+                    
+                    Spacer()
+                    
+                    // MARK:  Messge
+                    VStack(alignment: .center, spacing: 16) {
+                            Image("gfx-seven-reel")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 72)
+                        
+                        Text("Bad Luck, You Lost!. \n Lets Play Again")
+                            .font(.system(.body, design: .rounded))
+                            .lineLimit(2)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color.gray)
+                            .layoutPriority(1)
+                        
+                        Button {
+                            self.showModal = false
+                            self.coins = 100
+                        } label: {
+                            Text("New Game".uppercased())
+                                .font(.system(.body, design: .rounded))
+                                .fontWeight(.semibold)
+                                .accentColor(Color("ColorPink"))
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
+                                .frame(minWidth: 128)
+                                .background(
+                                    Capsule()
+                                        .strokeBorder(lineWidth: 1.75, antialiased: false)
+                                        .foregroundColor(Color.pink
+                                                        )
+                                )
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                }
+                .frame(minWidth: 200, idealWidth: 200, maxWidth: 320, minHeight: 260, idealHeight: 200, maxHeight: 320, alignment: .center)
+                .background(Color.white)
+                .cornerRadius(20)
+                .shadow(color: Color("ColorTransparentBlack"), radius: 6, x: 0, y: 8)
             }
             
         } // End of ZStack
