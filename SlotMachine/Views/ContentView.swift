@@ -15,6 +15,8 @@ struct ContentView: View {
     @State private var highScore: Int = 0
     @State private var coins: Int = 100
     @State private var betAmount: Int = 10
+    @State private var isActiveBet10: Bool = true
+    @State private var isActiveBet20: Bool = false
     
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
     
@@ -63,10 +65,14 @@ struct ContentView: View {
     
     func acivateBet20() {
         betAmount = 20
+        isActiveBet20 = true
+        isActiveBet10 = false
     }
    
     func activateBet10() {
         betAmount = 10
+        isActiveBet10 = true
+        isActiveBet20 = false
     }
     
     // MARK:  Game over
@@ -174,7 +180,7 @@ struct ContentView: View {
                         }) {
                             Text("20")
                                 .fontWeight(.heavy)
-                                .foregroundColor(Color.white)
+                                .foregroundColor(isActiveBet20 ? Color.yellow : Color.white)
                                 .modifier(BetNumberModifier())
                         }
                         .modifier(BetCapsuleModifier()
@@ -182,7 +188,7 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
-                            .opacity(0)
+                            .opacity(isActiveBet20 ? 1 : 0)
                             .modifier(CasinChipModifier())
                     } // End of HStack
                     
@@ -193,7 +199,7 @@ struct ContentView: View {
                         }) {
                             Text("10")
                                 .fontWeight(.heavy)
-                                .foregroundColor(Color.yellow)
+                                .foregroundColor(isActiveBet10 ? Color.yellow : Color.white)
                                 .modifier(BetNumberModifier())
                         }
                         .modifier(BetCapsuleModifier()
@@ -201,7 +207,7 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
-                            .opacity(1)
+                            .opacity(isActiveBet10 ? 1 : 0)
                             .modifier(CasinChipModifier())
                     } // End of HStack
                     
