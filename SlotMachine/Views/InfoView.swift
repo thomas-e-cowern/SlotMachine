@@ -13,6 +13,33 @@ struct InfoView: View {
             LogoView()
             
             Spacer()
+            
+            Form {
+                Section (header: Text("About Slot Machine")) {
+                    FormRowView(firstItem: "Application", secondItem: "Slot Machine")
+                    FormRowView(firstItem: "Platforms", secondItem: "iPhone, iPad, Mac")
+                    FormRowView(firstItem: "Developer", secondItem: "Thomas E Cowern")
+                    FormRowView(firstItem: "Designer", secondItem: "Robert Petras")
+                    FormRowView(firstItem: "Music", secondItem: "Dan Lebowitz")
+                    FormRowView(firstItem: "Copyright", secondItem: "2022")
+                    FormRowView(firstItem: "Version", secondItem: "1.0.0")
+                }
+            }
+            .font(.system(.body, design: .rounded))
+        }
+    }
+}
+
+struct FormRowView: View {
+    
+    var firstItem: String
+    var secondItem: String
+    
+    var body: some View {
+        HStack () {
+            Text(firstItem).foregroundColor(Color.gray)
+            Spacer()
+            Text(secondItem)
         }
     }
 }
@@ -22,3 +49,5 @@ struct InfoView_Previews: PreviewProvider {
         InfoView()
     }
 }
+
+
