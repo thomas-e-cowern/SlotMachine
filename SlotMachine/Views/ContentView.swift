@@ -19,6 +19,7 @@ struct ContentView: View {
     @State private var isActiveBet20: Bool = false
     @State private var showModal: Bool = false
     @State private var animatingSymbol: Bool = false
+    @State private var animatingModel: Bool = false
     
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
     
@@ -237,12 +238,22 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
+                            .offset(x: isActiveBet20 ? 0 : 20)
                             .opacity(isActiveBet20 ? 1 : 0)
                             .modifier(CasinChipModifier())
                     } // End of HStack
                     
+                    Spacer()
+                    
                     // Bet 10
                     HStack (alignment: .center, spacing: 10) {
+                        
+                        Image("gfx-casino-chips")
+                            .resizable()
+                            .offset(x: isActiveBet10 ? 0 : -20)
+                            .opacity(isActiveBet10 ? 1 : 0)
+                            .modifier(CasinChipModifier())
+                        
                         Button(action: {
                             self.activateBet10()
                         }) {
@@ -253,11 +264,6 @@ struct ContentView: View {
                         }
                         .modifier(BetCapsuleModifier()
                         )
-                        
-                        Image("gfx-casino-chips")
-                            .resizable()
-                            .opacity(isActiveBet10 ? 1 : 0)
-                            .modifier(CasinChipModifier())
                     } // End of HStack
                     
                 } // End of HStack
@@ -326,6 +332,8 @@ struct ContentView: View {
                         
                         Button {
                             self.showModal = false
+                            self.animatingModel = false
+                            self.activateBet10()
                             self.coins = 100
                         } label: {
                             Text("New Game".uppercased())
@@ -347,10 +355,16 @@ struct ContentView: View {
                     Spacer()
                     
                 }
-                .frame(minWidth: 200, idealWidth: 200, maxWidth: 320, minHeight: 260, idealHeight: 200, maxHeight: 320, alignment: .center)
+                .frame(minWidth: 280, idealWidth: 280, maxWidth: 320, minHeight: 260, idealHeight: 280, maxHeight: 320, alignment: .center)
                 .background(Color.white)
                 .cornerRadius(20)
                 .shadow(color: Color("ColorTransparentBlack"), radius: 6, x: 0, y: 8)
+                .opacity($animatingModel.wrappedValue ? 1 : 0)
+                .offset(y: $animatingModel.wrappedValue ? 0 : -100)
+                .animation(Animation.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0), value: animatingModel)
+                .onAppear {
+                    self.animatingModel = true
+                }
             }
             
         } // End of ZStack
