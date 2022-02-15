@@ -118,6 +118,25 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
+                            .opacity(0)
+                            .modifier(CasinChipModifier())
+                    } // End of HStack
+                    
+                    // Bet 10
+                    HStack (alignment: .center, spacing: 10) {
+                        Button(action: {
+                            print("Bet 10 coins")
+                        }) {
+                            Text("10")
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color.yellow)
+                                .modifier(BetNumberModifier())
+                        }
+                        .modifier(BetCapsuleModifier()
+                        )
+                        
+                        Image("gfx-casino-chips")
+                            .resizable()
                             .opacity(1)
                             .modifier(CasinChipModifier())
                     } // End of HStack
