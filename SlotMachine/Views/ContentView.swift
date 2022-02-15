@@ -12,25 +12,57 @@ struct ContentView: View {
     // MARK:  Properties
     @State private var showInfoView: Bool = false
     @State private var reels = [0, 1, 2]
+    @State private var highScore: Int = 0
+    @State private var coins: Int = 100
+    @State private var betAmount: Int = 10
     
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
     
     // MARK:  Functions
-    func spinReels() {
-        reels[0] = Int.random(in: 0...symbols.count - 1)
-        reels[1] = Int.random(in: 0...symbols.count - 1)
-        reels[2] = Int.random(in: 0...symbols.count - 1)
-    }
     
     // MARK:  Sping reels
+    func spinReels() {
+
+        reels = reels.map({ _ in
+            Int.random(in: 0...symbols.count - 1)
+        })
+    }
     
+
     // MARK:  Check if win
+    func checkWinning() {
+        if reels[0] == reels[1] && reels[2] == reels[2] && reels[0] == reels[2] {
+            
+            // MARK:  Player Wins
+            playerWins()
+            
+            // MARK:  New high score?
+            if coins > highScore {
+                newHighScore()
+            }
+            
+        } else {
+            
+            // MARK:  Player Loses
+            playerLoses()
+            
+        }
+    }
     
-    // MARK:  Wins
+    func playerWins () {
+        coins += betAmount * 10
+    }
     
-    // MARK:  New high score
+    func newHighScore () {
+        highScore = coins
+    }
     
-    // MARK:  Loses
+    func playerLoses () {
+        coins -= betAmount
+    }
+    
+    
+   
     
     // MARK:  Game over
     
@@ -56,7 +88,7 @@ struct ContentView: View {
                         Text("Your\nCoins".uppercased())
                             .scoreLabelStyle()
                             .multilineTextAlignment(.trailing)
-                       Text("100")
+                       Text("\(coins)")
                             .scoreNumberStyle()
                             .modifier(ScoreNumberModifier())
                     } // End of HStack
@@ -65,7 +97,7 @@ struct ContentView: View {
                     Spacer()
                     
                     HStack () {
-                        Text("200")
+                        Text("\(highScore)")
                              .scoreNumberStyle()
                              .modifier(ScoreNumberModifier())
                         Text("High\nScore".uppercased())
@@ -107,15 +139,20 @@ struct ContentView: View {
                     .frame(maxWidth: 500)
                     
                     // MARK:  Spin button
-                    Button {
+                    
+                    Button (action: {
                         self.spinReels()
-                    } label: {
+                        
+                        // Check win
+                        self.checkWinning()
+
+                    }, label: {
                         Image("gfx-spin")
                             .renderingMode(.original)
                             .resizable()
                             .modifier(ImageModifier())
-                        
-                    }
+                    })
+                    
 
                     
                     
