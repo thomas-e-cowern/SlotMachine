@@ -12,7 +12,7 @@ struct ContentView: View {
     // MARK:  Properties
     @State private var showInfoView: Bool = false
     @State private var reels = [0, 1, 2]
-    @State private var highScore: Int = 0
+    @State private var highScore: Int = UserDefaults.standard.integer(forKey: "HighScore")
     @State private var coins: Int = 100
     @State private var betAmount: Int = 10
     @State private var isActiveBet10: Bool = true
@@ -58,6 +58,7 @@ struct ContentView: View {
     
     func newHighScore () {
         highScore = coins
+        UserDefaults.standard.set(highScore, forKey: "HighScore")
     }
     
     func playerLoses () {
@@ -81,6 +82,13 @@ struct ContentView: View {
             // MARK:  Show popup end of game
             showModal = true
         }
+    }
+    
+    func resetGame() {
+        highScore = 0
+        UserDefaults.standard.set(highScore, forKey: "HighScore")
+        coins = 100
+        activateBet10()
     }
     
     // MARK:  Game over
@@ -230,7 +238,7 @@ struct ContentView: View {
 
             .overlay(
                 Button(action: {
-                    print("Reset")
+                    self.resetGame()
                 }, label: {
                     Image(systemName: "arrow.2.circlepath.circle")
                 })
