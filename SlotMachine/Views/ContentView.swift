@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var betAmount: Int = 10
     @State private var isActiveBet10: Bool = true
     @State private var isActiveBet20: Bool = false
+    @State private var showModal: Bool = true
     
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
     
@@ -73,6 +74,13 @@ struct ContentView: View {
         betAmount = 10
         isActiveBet10 = true
         isActiveBet20 = false
+    }
+    
+    func isGameOver() {
+        if coins <= 0 {
+            // MARK:  Show popup end of game
+            showModal = true
+        }
     }
     
     // MARK:  Game over
@@ -156,6 +164,9 @@ struct ContentView: View {
                         
                         // Check win
                         self.checkWinning()
+                        
+                        // MARK:  Game over
+                        self.isGameOver()
 
                     }, label: {
                         Image("gfx-spin")
@@ -238,8 +249,16 @@ struct ContentView: View {
                     .padding()
                 , alignment: .topTrailing
             )
+            .frame(maxWidth: 720)
+            .blur(radius: $showModal.wrappedValue ? 5 : 0, opaque: false)
 
             // MARK:  Pop-up
+            if $showModal.wrappedValue {
+                ZStack {
+                    Color("ColorTransparentBlack").edgesIgnoringSafeArea(.all)
+                }
+            }
+            
         } // End of ZStack
         .sheet(isPresented: $showInfoView) {
             InfoView()
