@@ -82,7 +82,7 @@ struct CasinChipModifier: ViewModifier {
         content
             .scaledToFit()
             .frame(height: 64)
-            .animation(.default)
+            .animation(.default, value: 1)
             .modifier(ShadowModifier())
     }
 }
