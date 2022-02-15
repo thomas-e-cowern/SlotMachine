@@ -31,6 +31,9 @@ struct ContentView: View {
         reels = reels.map({ _ in
             Int.random(in: 0...symbols.count - 1)
         })
+        
+        // MARK:  Play spin sound
+        playSound(sound: "spin", type: "mp3")
     }
     
 
@@ -44,6 +47,8 @@ struct ContentView: View {
             // MARK:  New high score?
             if coins > highScore {
                 newHighScore()
+            } else {
+                playSound(sound: "win", type: "mp3")
             }
             
         } else {
@@ -61,6 +66,7 @@ struct ContentView: View {
     func newHighScore () {
         highScore = coins
         UserDefaults.standard.set(highScore, forKey: "HighScore")
+        playSound(sound: "high-score", type: "mp3")
     }
     
     func playerLoses () {
@@ -71,18 +77,21 @@ struct ContentView: View {
         betAmount = 20
         isActiveBet20 = true
         isActiveBet10 = false
+        playSound(sound: "casino-chips", type: "mp3")
     }
    
     func activateBet10() {
         betAmount = 10
         isActiveBet10 = true
         isActiveBet20 = false
+        playSound(sound: "casino-chips", type: "mp3")
     }
     
     func isGameOver() {
         if coins <= 0 {
             // MARK:  Show popup end of game
             showModal = true
+            playSound(sound: "game-over", type: "mp3")
         }
     }
     
@@ -91,6 +100,7 @@ struct ContentView: View {
         UserDefaults.standard.set(highScore, forKey: "HighScore")
         coins = 100
         activateBet10()
+        playSound(sound: "chimeup", type: "mp3")
     }
     
     // MARK:  Game over
@@ -149,6 +159,7 @@ struct ContentView: View {
                             .animation(.easeOut(duration: Double.random(in: 0.5...1.0)), value: animatingSymbol)
                             .onAppear {
                                 self.animatingSymbol.toggle()
+                                playSound(sound: "riseup", type: "mp3")
                             }
                     }
                     
@@ -164,6 +175,7 @@ struct ContentView: View {
                                 .animation(.easeOut(duration: Double.random(in: 0.5...1.0)), value: animatingSymbol)
                                 .onAppear {
                                     self.animatingSymbol.toggle()
+                                    playSound(sound: "riseup", type: "mp3")
                                 }
                         }
                         
@@ -180,6 +192,7 @@ struct ContentView: View {
                                 .animation(.easeOut(duration: Double.random(in: 0.5...1.0)), value: animatingSymbol)
                                 .onAppear {
                                     self.animatingSymbol.toggle()
+                                    playSound(sound: "riseup", type: "mp3")
                                 }
                         }
                     } // End of HStack
