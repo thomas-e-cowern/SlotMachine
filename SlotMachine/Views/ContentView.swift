@@ -18,6 +18,7 @@ struct ContentView: View {
     @State private var isActiveBet10: Bool = true
     @State private var isActiveBet20: Bool = false
     @State private var showModal: Bool = false
+    @State private var animatingSymbol: Bool = false
     
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
     
@@ -142,6 +143,12 @@ struct ContentView: View {
                         Image(symbols[reels[0]])
                             .resizable()
                             .modifier(ImageModifier())
+                            .opacity(animatingSymbol ? 1 : 0)
+                            .offset(y: animatingSymbol ? 0 : -150)
+                            .animation(.easeOut(duration: Double.random(in: 0.5...1.0)), value: animatingSymbol)
+                            .onAppear {
+                                self.animatingSymbol.toggle()
+                            }
                     }
                     
                     HStack (alignment: .center, spacing: 0) {
@@ -151,6 +158,12 @@ struct ContentView: View {
                             Image(symbols[reels[1]])
                                 .resizable()
                                 .modifier(ImageModifier())
+                                .opacity(animatingSymbol ? 1 : 0)
+                                .offset(y: animatingSymbol ? 0 : -150)
+                                .animation(.easeOut(duration: Double.random(in: 0.5...1.0)), value: animatingSymbol)
+                                .onAppear {
+                                    self.animatingSymbol.toggle()
+                                }
                         }
                         
                         Spacer()
@@ -161,6 +174,12 @@ struct ContentView: View {
                             Image(symbols[reels[2]])
                                 .resizable()
                                 .modifier(ImageModifier())
+                                .opacity(animatingSymbol ? 1 : 0)
+                                .offset(y: animatingSymbol ? 0 : -150)
+                                .animation(.easeOut(duration: Double.random(in: 0.5...1.0)), value: animatingSymbol)
+                                .onAppear {
+                                    self.animatingSymbol.toggle()
+                                }
                         }
                     } // End of HStack
                     .frame(maxWidth: 500)
@@ -168,7 +187,18 @@ struct ContentView: View {
                     // MARK:  Spin button
                     
                     Button (action: {
+                        // MARK:  Animation default state
+                        withAnimation {
+                            self.animatingSymbol = false
+                        }
+                        
+                        // MARK:  Spin reels
                         self.spinReels()
+                        
+                        // MARK:  Trigger animation
+                        withAnimation   {
+                            self.animatingSymbol = true
+                        }
                         
                         // Check win
                         self.checkWinning()
