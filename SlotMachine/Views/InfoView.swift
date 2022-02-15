@@ -26,7 +26,21 @@ struct InfoView: View {
                 }
             }
             .font(.system(.body, design: .rounded))
-        }
+        } // End of VStack
+        .padding(.top)
+        .overlay(
+            Button(action: {
+                print("Info Page Closed")
+            }, label: {
+                Image(systemName: "xmark.circle")
+            })
+                .padding(.top, 20)
+                .padding(.trailing, 20)
+                .foregroundColor(Color.red)
+                .font(.system(.headline, design: .rounded))
+            , alignment: .topTrailing
+            
+        )
     }
 }
 
