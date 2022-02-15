@@ -11,10 +11,28 @@ struct ContentView: View {
     
     // MARK:  Properties
     @State private var showInfoView: Bool = false
+    @State private var reels = [0, 1, 2]
     
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
     
-    @State private var reels = [0, 1, 2]
+    // MARK:  Functions
+    func spinReels() {
+        reels[0] = Int.random(in: 0...symbols.count - 1)
+        reels[1] = Int.random(in: 0...symbols.count - 1)
+        reels[2] = Int.random(in: 0...symbols.count - 1)
+    }
+    
+    // MARK:  Sping reels
+    
+    // MARK:  Check if win
+    
+    // MARK:  Wins
+    
+    // MARK:  New high score
+    
+    // MARK:  Loses
+    
+    // MARK:  Game over
     
     // MARK:  Body
     var body: some View {
@@ -90,7 +108,7 @@ struct ContentView: View {
                     
                     // MARK:  Spin button
                     Button {
-                        print("Sping the wheels")
+                        self.spinReels()
                     } label: {
                         Image("gfx-spin")
                             .renderingMode(.original)
