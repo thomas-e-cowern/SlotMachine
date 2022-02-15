@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct InfoView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack (alignment: .center, spacing:  10) {
             LogoView()
@@ -30,14 +33,14 @@ struct InfoView: View {
         .padding(.top)
         .overlay(
             Button(action: {
-                print("Info Page Closed")
+                self.presentationMode.wrappedValue.dismiss()
             }, label: {
                 Image(systemName: "xmark.circle")
             })
-                .padding(.top, 20)
+                .padding(.top, 10)
                 .padding(.trailing, 20)
                 .foregroundColor(Color.red)
-                .font(.system(.headline, design: .rounded))
+                .font(.system(.title, design: .rounded))
             , alignment: .topTrailing
             
         )

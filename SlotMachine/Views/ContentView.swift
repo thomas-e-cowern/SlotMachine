@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK:  Properties
-    
+    @State private var showInfoView: Bool = false
     
     // MARK:  Body
     var body: some View {
@@ -146,32 +146,34 @@ struct ContentView: View {
             } // End of VStack
             
             // MARK:  Buttons
-            .overlay(alignment: .topLeading, content: {
 
-                // MARK:  Reset
-                Button {
-                    print("Reset the game")
-                } label: {
+            .overlay(
+                Button(action: {
+                    print("Reset")
+                }, label: {
                     Image(systemName: "arrow.2.circlepath.circle")
-                }
-                .modifier(ButtonModifier())
-            })
+                })
+                    .modifier(ButtonModifier())
+                , alignment: .topLeading
+            )
             .padding()
             
-            .overlay(alignment: .topTrailing, content: {
-
-                // MARK:  Info
-                Button {
-                    print("Info")
-                } label: {
+            .overlay(
+                Button(action: {
+                    self.showInfoView = true
+                }, label: {
                     Image(systemName: "info.circle")
-                }
-                .modifier(ButtonModifier())
-            })
-            .padding()
+                })
+                    .modifier(ButtonModifier())
+                    .padding()
+                , alignment: .topTrailing
+            )
 
             // MARK:  Pop-up
         } // End of ZStack
+        .sheet(isPresented: $showInfoView) {
+            InfoView()
+        }
     }
 }
 
