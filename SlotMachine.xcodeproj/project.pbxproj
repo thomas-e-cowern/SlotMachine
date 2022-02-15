@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4160768C27BBCCDC00E716FD /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160768B27BBCCDC00E716FD /* InfoView.swift */; };
+		4160768E27BC440600E716FD /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160768D27BC440500E716FD /* PlaySound.swift */; };
 		41FD996127BA93600083F100 /* SlotMachineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FD996027BA93600083F100 /* SlotMachineApp.swift */; };
 		41FD996327BA93600083F100 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FD996227BA93600083F100 /* ContentView.swift */; };
 		41FD996527BA93670083F100 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41FD996427BA93670083F100 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		4160768B27BBCCDC00E716FD /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		4160768D27BC440500E716FD /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		41FD995D27BA93600083F100 /* SlotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FD996027BA93600083F100 /* SlotMachineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineApp.swift; sourceTree = "<group>"; };
 		41FD996227BA93600083F100 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				41FD998527BAB2850083F100 /* Modifiers.swift */,
 				41FD998727BABD2D0083F100 /* Extensions.swift */,
+				4160768D27BC440500E716FD /* PlaySound.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41FD998827BABD2D0083F100 /* Extensions.swift in Sources */,
+				4160768E27BC440600E716FD /* PlaySound.swift in Sources */,
 				41FD998627BAB2860083F100 /* Modifiers.swift in Sources */,
 				41FD996327BA93600083F100 /* ContentView.swift in Sources */,
 				41FD998427BAB2090083F100 /* LogoView.swift in Sources */,
