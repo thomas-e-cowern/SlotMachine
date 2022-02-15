@@ -12,6 +12,10 @@ struct ContentView: View {
     // MARK:  Properties
     @State private var showInfoView: Bool = false
     
+    let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
+    
+    @State private var reels = [0, 1, 2]
+    
     // MARK:  Body
     var body: some View {
         ZStack (alignment:.center) {
@@ -58,7 +62,7 @@ struct ContentView: View {
                     // MARK:  Reel 1
                     ZStack {
                         ReelsView()
-                        Image("gfx-bell")
+                        Image(symbols[reels[0]])
                             .resizable()
                             .modifier(ImageModifier())
                     }
@@ -67,7 +71,7 @@ struct ContentView: View {
                         // MARK:  Reel 2
                         ZStack {
                             ReelsView()
-                            Image("gfx-seven")
+                            Image(symbols[reels[1]])
                                 .resizable()
                                 .modifier(ImageModifier())
                         }
@@ -77,7 +81,7 @@ struct ContentView: View {
                         // MARK:  Reel 3
                         ZStack {
                             ReelsView()
-                            Image("gfx-cherry")
+                            Image(symbols[reels[2]])
                                 .resizable()
                                 .modifier(ImageModifier())
                         }
