@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4160768C27BBCCDC00E716FD /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160768B27BBCCDC00E716FD /* InfoView.swift */; };
 		4160768E27BC440600E716FD /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160768D27BC440500E716FD /* PlaySound.swift */; };
+		4160769627BD38C500E716FD /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4160769527BD38C500E716FD /* Stickers.xcassets */; };
+		4160769A27BD38C500E716FD /* SlotMachineStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4160769327BD38B800E716FD /* SlotMachineStickers.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		41FD996127BA93600083F100 /* SlotMachineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FD996027BA93600083F100 /* SlotMachineApp.swift */; };
 		41FD996327BA93600083F100 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FD996227BA93600083F100 /* ContentView.swift */; };
 		41FD996527BA93670083F100 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41FD996427BA93670083F100 /* Assets.xcassets */; };
@@ -28,11 +30,38 @@
 		41FD998A27BACD120083F100 /* ReelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FD998927BACD110083F100 /* ReelsView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4160769827BD38C500E716FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41FD995527BA93600083F100 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4160769227BD38B800E716FD;
+			remoteInfo = SlotMachineStickers;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4160769E27BD38C500E716FD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4160769A27BD38C500E716FD /* SlotMachineStickers.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4160768B27BBCCDC00E716FD /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		4160768D27BC440500E716FD /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		4160768F27BD2D9B00E716FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4160769027BD2E3F00E716FD /* SlotMachine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlotMachine.entitlements; sourceTree = "<group>"; };
+		4160769327BD38B800E716FD /* SlotMachineStickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SlotMachineStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4160769527BD38C500E716FD /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		4160769727BD38C500E716FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41FD995D27BA93600083F100 /* SlotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FD996027BA93600083F100 /* SlotMachineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineApp.swift; sourceTree = "<group>"; };
 		41FD996227BA93600083F100 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,11 +93,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4160769427BD38B800E716FD /* SlotMachineStickers */ = {
+			isa = PBXGroup;
+			children = (
+				4160769527BD38C500E716FD /* Stickers.xcassets */,
+				4160769727BD38C500E716FD /* Info.plist */,
+			);
+			path = SlotMachineStickers;
+			sourceTree = "<group>";
+		};
 		41FD995427BA93600083F100 = {
 			isa = PBXGroup;
 			children = (
 				41FD995F27BA93600083F100 /* SlotMachine */,
 				41FD998127BA9CB70083F100 /* LaunchScreen.storyboard */,
+				4160769427BD38B800E716FD /* SlotMachineStickers */,
 				41FD995E27BA93600083F100 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				41FD995D27BA93600083F100 /* SlotMachine.app */,
+				4160769327BD38B800E716FD /* SlotMachineStickers.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +183,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4160769227BD38B800E716FD /* SlotMachineStickers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4160769B27BD38C500E716FD /* Build configuration list for PBXNativeTarget "SlotMachineStickers" */;
+			buildPhases = (
+				4160769127BD38B800E716FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SlotMachineStickers;
+			productName = SlotMachineStickers;
+			productReference = 4160769327BD38B800E716FD /* SlotMachineStickers.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
+		};
 		41FD995C27BA93600083F100 /* SlotMachine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41FD996B27BA93670083F100 /* Build configuration list for PBXNativeTarget "SlotMachine" */;
@@ -150,10 +205,12 @@
 				41FD995927BA93600083F100 /* Sources */,
 				41FD995A27BA93600083F100 /* Frameworks */,
 				41FD995B27BA93600083F100 /* Resources */,
+				4160769E27BD38C500E716FD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4160769927BD38C500E716FD /* PBXTargetDependency */,
 			);
 			name = SlotMachine;
 			productName = SlotMachine;
@@ -170,6 +227,9 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					4160769227BD38B800E716FD = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					41FD995C27BA93600083F100 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -189,11 +249,20 @@
 			projectRoot = "";
 			targets = (
 				41FD995C27BA93600083F100 /* SlotMachine */,
+				4160769227BD38B800E716FD /* SlotMachineStickers */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4160769127BD38B800E716FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4160769627BD38C500E716FD /* Stickers.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41FD995B27BA93600083F100 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,7 +301,55 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4160769927BD38C500E716FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4160769227BD38B800E716FD /* SlotMachineStickers */;
+			targetProxy = 4160769827BD38C500E716FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		4160769C27BD38C500E716FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 56F54J4H3N;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SlotMachineStickers/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Slot Machine";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilesoftwareservices.SlotMachine.SlotMachineStickers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4160769D27BD38C500E716FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 56F54J4H3N;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SlotMachineStickers/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Slot Machine";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilesoftwareservices.SlotMachine.SlotMachineStickers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		41FD996927BA93670083F100 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -362,6 +479,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SlotMachine/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -397,6 +515,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SlotMachine/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -422,6 +541,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4160769B27BD38C500E716FD /* Build configuration list for PBXNativeTarget "SlotMachineStickers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4160769C27BD38C500E716FD /* Debug */,
+				4160769D27BD38C500E716FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		41FD995827BA93600083F100 /* Build configuration list for PBXProject "SlotMachine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
