@@ -23,6 +23,8 @@ struct ContentView: View {
     
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
     
+    let haptics = UINotificationFeedbackGenerator()
+    
     // MARK:  Functions
     
     // MARK:  Sping reels
@@ -34,6 +36,7 @@ struct ContentView: View {
         
         // MARK:  Play spin sound
         playSound(sound: "spin", type: "mp3")
+        haptics.notificationOccurred(.success)
     }
     
 
@@ -78,6 +81,7 @@ struct ContentView: View {
         isActiveBet20 = true
         isActiveBet10 = false
         playSound(sound: "casino-chips", type: "mp3")
+        haptics.notificationOccurred(.success)
     }
    
     func activateBet10() {
@@ -85,6 +89,7 @@ struct ContentView: View {
         isActiveBet10 = true
         isActiveBet20 = false
         playSound(sound: "casino-chips", type: "mp3")
+        haptics.notificationOccurred(.success)
     }
     
     func isGameOver() {
